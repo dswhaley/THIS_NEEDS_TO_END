@@ -35,13 +35,16 @@ public class HTTPClient {
 
             Scanner messageReader = new Scanner(message);
 
-            if(messageReader.hasNext()){
-                fileName = messageReader.next();
-            } else {
-                fileName = "index.html";
-            }
             // Gets the ip address from the user
             SERVER_ADDR = messageReader.next();
+
+            if(messageReader.hasNext()){
+                fileName = messageReader.next();
+                fileName = "/" + fileName;
+            } else {
+                fileName = "/index.html";
+            }
+
             // TODO: receive the feedback
             System.out.println("After sending the request, wait for response: ");
 
